@@ -20,6 +20,8 @@ class CoffeeShop:
 	def check_age(self,customer_age):
 		if customer_age < 16:
 			return False
+		else:
+			return True
 	
 	def energy_check(self,customer):
 		if customer.energy > 120:
@@ -28,13 +30,24 @@ class CoffeeShop:
 			return True
 		
 	def buy_a_drink(self,customer,drink):
-		print(customer.energy)
-		if self.energy_check(customer):
-			self.sell_a_drink(customer,drink)
-			print("enjoy")
-			customer.add_energy(drink)
+		if self.check_age(customer.age):
+			if self.energy_check(customer):
+				self.sell_a_drink(customer,drink)
+				print("enjoy")
+				customer.add_energy(drink)
+			else:
+				print("We Can't serve you")
 		else:
-			print("We Can't serve you")
+			print("You are underaged")
+		
+	def drink_names(self):
+		drinks_names = [drink.name for drink in self.drink_list]
+		return drinks_names
+	
+	def drinks_customer_can_afford(self,customer):
+		can_afford = [drink.name for drink in self.drink_list if drink.price <= customer.wallet]
+		return can_afford
+		
 
 	
 		
