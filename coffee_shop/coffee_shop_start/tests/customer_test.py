@@ -1,14 +1,11 @@
 import unittest
 from src.customer import Customer
-from src.coffee_shop import CoffeeShop
-from src.drink import Drink
+
 
 class TestCustomer(unittest.TestCase):
     def setUp(self):
         self.geo = Customer("George",200)
-        self.coffee_shop = CoffeeShop("S&G",1000)
-        self.drink= Drink("Coffee", 10)
-
+        # self.coffee_shop = CoffeeShop("S&G",1000)
 
     
     def test_customer_name(self):
@@ -21,5 +18,3 @@ class TestCustomer(unittest.TestCase):
         self.geo.reduce_wallet(20)
         self.assertEqual(180,self.geo.wallet)
 
-    def buy_drink(self):
-        self.assertEqual(self.drink.name,"Coff")

@@ -12,8 +12,5 @@ class Customer:
         self.wallet -= amount
         return amount
     
-    def buy_drink(self):
-        pass
-
 
     
