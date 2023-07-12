@@ -4,8 +4,7 @@ from src.customer import Customer
 
 class TestCustomer(unittest.TestCase):
     def setUp(self):
-        self.geo = Customer("George",200)
-        # self.coffee_shop = CoffeeShop("S&G",1000)
+        self.geo = Customer("George",200,30,100)
 
     
     def test_customer_name(self):
@@ -18,3 +17,10 @@ class TestCustomer(unittest.TestCase):
         self.geo.reduce_wallet(20)
         self.assertEqual(180,self.geo.wallet)
 
+    def test_age_check(self):
+        self.geo.age
+
+    def test_add_energy(self):
+        self.customer_energy = 0
+        self.customer_energy += 10
+        self.assertEqual(self.customer_energy,10)
